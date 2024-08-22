@@ -3,8 +3,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 200px; 
-    width: 272px;
-    height: 92px;
+    width: 320px;
+    height: 120px;
     border-radius: 25px;
 }
 body {
@@ -19,12 +19,12 @@ body {
 }
 .button {
     margin-top: 10px; 
-    background-color: #547bf1;
+    background-color: #d6d8dd;
     margin-left: 20px;
     margin-right: 20px;
     width: 120px;
     height: 30px;
-    color: rgb(253, 249, 249);
+    color: rgb(31, 114, 238);
     border-radius: 25px;
 }
 .text_input {
@@ -54,7 +54,7 @@ body {
 }
 .img_but1 {
     color: rgb(31, 114, 238);
-    font-size: 15px;
+    font-size: 20px;
     text-decoration: none;
     float: right;
     margin-top: -179px;
