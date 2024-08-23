@@ -26,6 +26,11 @@ body {
     height: 30px;
     color: rgb(31, 114, 238);
     border-radius: 25px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #f39f3f;
+    color: rgb(94, 93, 90);
 }
 .text_input {
     display: block;
@@ -43,6 +48,10 @@ body {
     font-size: 15px;
     text-decoration: none;
     border-radius: 25px;
+}
+.img_but:hover {
+    text-decoration: underline;
+    color: rgb(216, 191, 123);
 }
 .div_1{
     margin-left: 10px;
