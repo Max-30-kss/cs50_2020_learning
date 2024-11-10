@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(206, 203, 192);
+}
+
+textarea {
+    min-height: 400px;
+}
+
+#emails-view > div {
+    width: 100%;
+}
+
+#emails-view button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid rgb(189, 185, 176);
+}
+
+#emails-view button:hover {
+    box-shadow: 40px 40px rgb(154, 209, 159) inset;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    text-align: left;
+    width: 25%;
+}
+
+
+
