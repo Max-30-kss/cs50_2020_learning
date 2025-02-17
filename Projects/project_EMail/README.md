@@ -6,13 +6,13 @@ You also may put letters to archive from inbox and get them from archive too.
 You can also see few screenshots.
 
 The inbox photo:
-![image](images/inbox letter.png)
+![image](mail/images/inbox%20letter.png)
 
 The photo of letter:
-![image](images/screen the text of the letter.png)
+![image](mail/images/screen%20the%20text%20of%20the%20letter.png)
 
 Preparing answer to letter was received:
-![image](inbox letter to test1@example.png)
+![image](mail/images/inbox%20letter%20test1@example.png)
 
 Adding letters to the archive:
-![image](Adding letters to the archive.png)
+![image](mail/images/adding%20letters%20to%20the%20archive.png)
