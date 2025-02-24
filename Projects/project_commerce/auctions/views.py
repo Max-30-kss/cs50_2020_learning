@@ -297,6 +297,18 @@ def ownerIndaHouse(lot, user):
         return True
     else:
         return False
+def filter_by_price(request, min_price, max_price):
+    categories = Category.objects.all().order_by('name')
+    lots = Lots.objects.filter(bid__gte=min_price, bid__lte=max_price).order_by('-status')
+    lotsMaxBidsList = lotsMaxBids(lots)
+
+    return render(request, "auctions/index.html", {
+        "categories": categories,
+        "lots": lots,
+        "lotsMaxBids": lotsMaxBidsList,
+        "titleH": f"Cars worth ${min_price} - ${max_price}",
+    })
+
 
 ###########   Classes   ###########
 

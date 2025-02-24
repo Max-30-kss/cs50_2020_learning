@@ -10,7 +10,6 @@ body {
     background: #c29e1ad8 repeat url( carbon-fibre.png); 
     color: white !important;  
 }
-
 .search {
     width: 400px;
     border: 1px solid  #E30119;
@@ -48,7 +47,20 @@ body {
 .ullistcat {
     list-style-type: none;
 }
+.formElemWidth {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
+.formElemInlineHeight {
+    height: 38px;
+}
+
+select.formElemWidth {
+    background-color: white;
+}
 
 textarea, input, select {
     border: 1px solid black;
