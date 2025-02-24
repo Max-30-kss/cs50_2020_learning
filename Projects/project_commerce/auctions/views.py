@@ -10,9 +10,15 @@ from django.urls import reverse
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Lots, User, Category, Bids, Comments
+from .models import Lots  # Імпортуємо модель Lot
 
+def all_listings(request):
+    lots = Lots.objects.all()
+    return render(request, "auctions/all_listings.html", {"lots": lots})
 
 def index(request):
     categories = Category.objects.all().order_by('name')
@@ -37,7 +43,6 @@ def active(request):
         })
 
 @login_required(redirect_field_name=None,login_url='login')
-
 def mylots(request):
     user = request.user
     categories = Category.objects.all().order_by('name')
@@ -51,7 +56,6 @@ def mylots(request):
         })
 
 @login_required(redirect_field_name=None,login_url='login')
-
 def wishlist(request):
     user = request.user
     lots = Lots.objects.filter(wishlist = user).order_by('-status', 'id')
@@ -77,7 +81,6 @@ def catview(request, cat):
         })
 
 @login_required(redirect_field_name=None,login_url='login')
-
 def newlot(request):
     if request.method == "POST":
         form = NewLotForm(request.POST, request.FILES)
@@ -94,6 +97,18 @@ def newlot(request):
             "form": NewLotForm()
         })
 
+@login_required(redirect_field_name=None, login_url='login')
+def delete_lot(request, lot_id):
+    lot = get_object_or_404(Lots, id=lot_id)
+
+    # Перевіряємо, чи користувач є автором лота
+    if lot.author != request.user:
+        messages.error(request, "You don't have permission to delete this lot.")
+        return redirect("all_listings")  # Перенаправлення на список всіх лотів
+
+    lot.delete()  # Видаляємо лот
+    messages.success(request, "The lot has been successfully deleted.")
+    return redirect("all_listings")  # Перенаправлення після видалення
 def login_view(request):
     if request.method == "POST":
 
@@ -309,7 +324,9 @@ def filter_by_price(request, min_price, max_price):
         "titleH": f"Cars worth ${min_price} - ${max_price}",
     })
 
-
+def all_listings(request):
+    lots = Lots.objects.all()  # Отримуємо всі лоти
+    return render(request, "auctions/all_listings.html", {"lots": lots})
 ###########   Classes   ###########
 
 class NewLotForm(ModelForm):

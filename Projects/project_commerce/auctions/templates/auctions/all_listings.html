@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}All Listings{% endblock %}
+
+{% block body %}
+   <h2>All Listings</h2>
+    {% for lot in lots %}
+        <div>
+            <a href="{% url 'lotpage' lot.id %}">{{ lot.name }}</a> - ${{ lot.bid }}
+        </div>
+    {% empty %}
+        <p>No listings available.</p>
+    {% endfor %} 
+{% endblock %}
